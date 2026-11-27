@@ -24,3 +24,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Dashboard PDFs contain the environment key in the page URL, keep local only
+experiment-screenshots/*.pdf

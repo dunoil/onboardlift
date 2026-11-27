@@ -79,7 +79,11 @@ npm run preview  # serve the production build locally
 
 ## Experiment result
 
-Experiment screenshot and win probability will be added here after the 27 and 28 Nov simulator batches run.
+Batch 1 ran 27 Nov 2026 (200 sessions, experiment rollout 50 percent). Flagsmith dashboard after a manual Results Refresh: 109 users enrolled, control 45 exposures with 15 `signup_completed` conversions (33.3 percent), treatment 64 exposures with 25 conversions (39.1 percent). Win probability not shown yet, the dashboard reads "Collecting data". Batch 2 (200 sessions) runs 28 Nov, then the win probability is read on 29 Nov.
+
+![Experiment dashboard after batch 1](experiment-screenshots/2026-11-27-batch1-dashboard-1.png)
+
+Note: the simulator exposed 136 control sessions, but the dashboard counts only the 45 enrolled ones. At 50 percent rollout the other 91 control sessions were unenrolled identities falling back to the flag default, so they recorded no exposure and their events are not attributed to the experiment. Treatment matches exactly (64 exposed, 25 signups) because every treatment assignment is enrolled.
 
 ## Limits, stated honestly
 
@@ -93,8 +97,8 @@ Link will be added here on 29 Nov 2026. Outline: the problem (0:00 to 0:15), the
 
 ## Status
 
-- 26 Nov 2026: app scaffolded and both versions built. Flagsmith Cloud account and project setup is blocked on a human only step: sign in to https://app.flagsmith.com/ with Google as pasticairterusan@gmail.com, then create project OnboardLift, flag `onboarding_variant`, metric `signup_completed`, and the 50/50 experiment. No saved login for Flagsmith exists in this session, so the setup could not be completed from here.
-- 27 Nov 2026: connect the environment key, run simulator batch 1 (200 sessions), screenshot the experiment dashboard.
+- 26 Nov 2026: app scaffolded and both versions built. Flagsmith Cloud setup complete and verified: project OnboardLift (ID 56417), multivariate flag `onboarding_variant` (control / treatment, 50/50), metric `signup_completed`, experiment "Onboarding signup test" (ID 523). Client side environment key is in `.env` and the SDK reads the live flag. Experiment rollout is 0 percent until the 27 Nov run raises it.
+- 27 Nov 2026: raise the experiment rollout to 50 percent, run simulator batch 1 (200 sessions), screenshot the experiment dashboard.
 - 28 Nov 2026: simulator batch 2 (200 sessions) only, no new features.
 - 29 Nov 2026: read the win probability, roll the winner to 100 percent, finish this README, record the demo video, submit before 22:30 WITA.
 
